@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "author": "freed0m.py",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": { "env": "micropython-20231005-v1.21.0" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 44.4,
+      "left": -130.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 119.15,
+      "left": -96,
+      "attrs": { "value": "1000" }
+    },
+    { "type": "wokwi-slide-switch", "id": "sw1", "top": 42.8, "left": 185.5, "attrs": {} },
+    { "type": "wokwi-slide-switch", "id": "sw2", "top": 42.8, "left": 243.1, "attrs": {} },
+    { "type": "wokwi-slide-switch", "id": "sw3", "top": 42.8, "left": 137.5, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": 153.6, "left": 345, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd2", "top": 124.8, "left": -125.4, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "led1:A", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "esp:D14", "green", [ "v0" ] ],
+    [ "sw1:2", "esp:D2", "green", [ "v0" ] ],
+    [ "sw2:2", "esp:D15", "green", [ "v0" ] ],
+    [ "sw3:2", "esp:D4", "green", [ "v0" ] ],
+    [ "sw2:3", "gnd1:GND", "green", [ "v0" ] ],
+    [ "sw1:3", "gnd1:GND", "green", [ "v38.4", "h144.2" ] ],
+    [ "sw3:3", "gnd1:GND", "green", [ "v57.6", "h192.2" ] ],
+    [ "led1:C", "gnd2:GND", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
